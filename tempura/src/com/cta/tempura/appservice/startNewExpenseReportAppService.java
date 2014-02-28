@@ -41,6 +41,7 @@ public class startNewExpenseReportAppService {
 		expenseReportDAO.update(report);
 		em.getTransaction().commit();
 		em.close();
+		//MessagingService.notify(claimers, MSG);
 	}
 	public static void main (String [] args){
 		startNewExpenseReportAppService test = new startNewExpenseReportAppService();

@@ -1,0 +1,67 @@
+AUTOINCREMENTALES
+
+	@Id
+	@Column(name = "id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
+
+
+MANY TO ONE - ONE TO MANY
+
+Clase Expense:
+
+	@ManyToOne
+	@JoinColumn(name = "report")
+	private ExpenseReport report;
+
+Clase ExpenseReport:
+
+	@OneToMany(mappedBy = "report")
+	private List<Expense> expenses;
+
+
+ONE TO ONE
+
+Clase Note:
+
+	@Id
+	@Column(name = "expense")
+	private Integer id;
+
+	@OneToOne
+	@JoinColumn(name = "expense", insertable = false, updatable = false)
+	private Expense expense;
+
+Clase Expense:
+
+	@OneToOne(mappedBy = "expense")
+	private Note note;
+
+
+MANY TO MANY
+
+Clase ExpenseReport:
+
+	@ManyToMany
+	@JoinTable(name = "expense_reports_users", 
+			joinColumns = { @JoinColumn(name = "expense_report") },
+			inverseJoinColumns = { @JoinColumn(name = "user") })
+	private List<User> users;
+
+Clase User:
+
+	@ManyToMany(mappedBy = "users")
+	private List<ExpenseReport> reports;
+
+
+ENUMS
+
+	public enum EventType {
+		PROJECT, SERVICE, MEETING;
+	}
+
+Clase ExpenseEvent:
+
+	@Column(name = "type")
+	@Enumerated(EnumType.ORDINAL)
+	private EventType type;
