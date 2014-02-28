@@ -70,7 +70,7 @@ public class User implements Serializable {
 	@Override
 	public String toString() {
 		return "User [userId=" + userId + ", userName=" + userName
-				+ ", userRole=" + userRole + "]";
+				+ ", userRole=" + userRole + "]\n";
 	}
 	
 	

@@ -17,52 +17,39 @@ public class ExpenseEventDAO {
 		this.em=em;
 	}
 	
-	public ExpenseEventDAO() {
-	}
 	
-	public void insert (ExpenseEvent event){
-		EntityManager em = ConnectionManager.getEntityManager();
-		em.getTransaction().begin();
+	public Integer insert (ExpenseEvent event){
 		em.persist(event);
-		em.getTransaction().commit();
-		em.close();
+		return event.getEventId();
 	}
 	
 	public ExpenseEvent findById (int id){
-		EntityManager em = ConnectionManager.getEntityManager();
 		ExpenseEvent event = em.find(ExpenseEvent.class, id);
-		em.close();
 		return event;
 	}
 	
 	public List<ExpenseEvent> findAll (){
-		EntityManager em = ConnectionManager.getEntityManager();
 		TypedQuery<ExpenseEvent> query = em.createQuery("FROM ExpenseEvent", ExpenseEvent.class);
 		List<ExpenseEvent> events = query.getResultList();
-		em.close();
 		return events;
 	}
 	
 	public void update (ExpenseEvent event){
-		EntityManager em = ConnectionManager.getEntityManager();
-		em.getTransaction().begin();
 		em.merge(event);
-		em.getTransaction().commit();
-		em.close();
 	}
 	
 	public void delete (ExpenseEvent event){
-		EntityManager em = ConnectionManager.getEntityManager();
-		em.getTransaction().begin();
 		em.remove(event);
-		em.getTransaction().commit();
-		em.close();
 	}
-	public static void main(String[] args) {
-		ExpenseEventDAO eventDAO = new ExpenseEventDAO();
-		
-		//System.out.println(eventDAO.findById(1));
-		System.out.println(eventDAO.findAll());
+	
+	
+	public EntityManager getEm() {
+		return em;
 	}
+
+	public void setEm(EntityManager em) {
+		this.em = em;
+	}
+
 
 }

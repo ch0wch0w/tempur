@@ -13,50 +13,36 @@ public class ReimbursementDAO {
 	
 	private EntityManager em;
 	
-	public void insert(Reimbursement reimbursement) {
-		EntityManager em = ConnectionManager.getEntityManager();
-		em.getTransaction().begin();
+	
+	
+	public ReimbursementDAO(EntityManager em) {
+		super();
+		this.em = em;
+	}
+
+	public Integer insert(Reimbursement reimbursement) {
 		em.persist(reimbursement);
-		em.getTransaction().commit();
-		em.close();
+		return reimbursement.getId();
 	}
 	
 	public Reimbursement findById(int id) {
-		EntityManager em = ConnectionManager.getEntityManager();
 		Reimbursement reimbursement = em.find(Reimbursement.class, id);
-		em.close();
 		return reimbursement;
 		
 	}
 	
 	public List<Reimbursement> findAll() {
-		EntityManager em = ConnectionManager.getEntityManager();
 		TypedQuery<Reimbursement> query = em.createQuery("FROM Reimbursement", Reimbursement.class);
 		List<Reimbursement> reimbursements = query.getResultList();
-		em.close();
 		return reimbursements;
 	}
 	
 	public void update(Reimbursement reimbursement) {
-		EntityManager em = ConnectionManager.getEntityManager();
-		em.getTransaction().begin();
 		em.merge(reimbursement);
-		em.getTransaction().commit();
-		em.close();
-		
 	}
 	
 	public void remove(Reimbursement reimbursement) {
-		EntityManager em = ConnectionManager.getEntityManager();
-		em.getTransaction().begin();
 		em.remove(reimbursement);
-		em.getTransaction().commit();
-		em.close();
 	}
 	
-	public static void main(String[] args) {
-		ReimbursementDAO dao = new ReimbursementDAO();
-		for (Reimbursement emp: dao.findAll())
-			System.out.println(emp);
-	}
 }

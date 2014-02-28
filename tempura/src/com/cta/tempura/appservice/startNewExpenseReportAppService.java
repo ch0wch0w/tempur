@@ -4,13 +4,6 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 
-
-
-
-
-
-
-
 import com.cta.tempura.dao.ExpenseReportDAO;
 import com.cta.tempura.dao.UserDAO;
 import com.cta.tempura.db.ConnectionManager;
@@ -48,5 +41,9 @@ public class startNewExpenseReportAppService {
 		expenseReportDAO.update(report);
 		em.getTransaction().commit();
 		em.close();
+	}
+	public static void main (String [] args){
+		startNewExpenseReportAppService test = new startNewExpenseReportAppService();
+		System.out.println(test.getStaff());
 	}
 }

@@ -20,9 +20,6 @@ public class ExpenseReportDAO {
 		this.em=em;
 	}
 
-	public ExpenseReportDAO() {
-		// TODO Auto-generated constructor stub
-	}
 
 	public Integer insert(ExpenseReport expenseReport) {		
 		em.persist(expenseReport);
@@ -41,26 +38,22 @@ public class ExpenseReportDAO {
 	}
 	
 	public void update(ExpenseReport expenseReport) {
-		EntityManager em = ConnectionManager.getEntityManager();
-		em.getTransaction().begin();
 		em.merge(expenseReport);
-		em.getTransaction().commit();
-		em.close();
 	}
 	
 	public void remove(ExpenseReport expenseReport) {
-		EntityManager em = ConnectionManager.getEntityManager();
-		em.getTransaction().begin();
 		em.remove(expenseReport);
-		em.getTransaction().commit();
-		em.close();
 	}
 	
-	public static void main(String[] args) {
-		ExpenseReportDAO dao = new ExpenseReportDAO();
-		
-		//System.out.println(dao.findById(1));
-		
-		System.out.println(dao.findAll());
+	
+	
+	public EntityManager getEm() {
+		return em;
 	}
+
+	public void setEm(EntityManager em) {
+		this.em = em;
+	}
+
+	
 }

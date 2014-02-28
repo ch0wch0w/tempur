@@ -17,52 +17,39 @@ public class UserDAO {
 		this.em=em;
 	}
 
-	public UserDAO() {
-		// TODO Auto-generated constructor stub
-	}
+	
 
-	public void insert (User user){
-		EntityManager em = ConnectionManager.getEntityManager();
-		em.getTransaction().begin();
+	public Integer insert (User user){
+		
 		em.persist(user);
-		em.getTransaction().commit();
-		em.close();
+		return user.getUserId();
 	}
 	
 	public User findById (int id){
-		EntityManager em = ConnectionManager.getEntityManager();
 		User user = em.find(User.class, id);
-		em.close();
 		return user;
 	}
 	
 	public List<User> findAll (){
-		EntityManager em = ConnectionManager.getEntityManager();
 		TypedQuery<User> query = em.createQuery("FROM User", User.class);
 		List<User> users = query.getResultList();
-		em.close();
 		return users;
 	}
 	
 	public void update (User user){
-		EntityManager em = ConnectionManager.getEntityManager();
-		em.getTransaction().begin();
 		em.merge(user);
-		em.getTransaction().commit();
-		em.close();
 	}
 	
 	public void delete (User user){
-		EntityManager em = ConnectionManager.getEntityManager();
-		em.getTransaction().begin();
 		em.remove(user);
-		em.getTransaction().commit();
-		em.close();
 	}
-	public static void main(String[] args) {
-		UserDAO userDAO = new UserDAO();
-		
-		//System.out.println(userDAO.findById(1));
-		System.out.println(userDAO.findAll());
+
+	public EntityManager getEm() {
+		return em;
 	}
+
+	public void setEm(EntityManager em) {
+		this.em = em;
+	}
+	
 }
