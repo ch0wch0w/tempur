@@ -10,6 +10,16 @@ import com.cta.tempura.model.ExpenseEvent;
 
 public class ExpenseEventDAO {
 	
+	private EntityManager em;
+	
+	public ExpenseEventDAO(EntityManager em) {
+		super();
+		this.em=em;
+	}
+	
+	public ExpenseEventDAO() {
+	}
+	
 	public void insert (ExpenseEvent event){
 		EntityManager em = ConnectionManager.getEntityManager();
 		em.getTransaction().begin();

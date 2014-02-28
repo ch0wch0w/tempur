@@ -10,11 +10,11 @@ import com.cta.tempura.model.User;
 
 public class UserDAO {
 	
-	private EntityManager entityManager;
+	private EntityManager em;
 	
 	public UserDAO(EntityManager em) {
 		super();
-		this.entityManager=em;
+		this.em=em;
 	}
 
 	public UserDAO() {

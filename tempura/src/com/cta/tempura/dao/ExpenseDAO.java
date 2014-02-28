@@ -10,6 +10,8 @@ import com.cta.tempura.model.Expense;
 
 public class ExpenseDAO {
 		
+	private EntityManager em;
+	
 	public void insert(Expense expense) {		
 		EntityManager em = ConnectionManager.getEntityManager();
 		em.getTransaction().begin();

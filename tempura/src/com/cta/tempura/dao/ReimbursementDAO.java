@@ -10,6 +10,9 @@ import com.cta.tempura.model.Reimbursement;
 
 
 public class ReimbursementDAO {
+	
+	private EntityManager em;
+	
 	public void insert(Reimbursement reimbursement) {
 		EntityManager em = ConnectionManager.getEntityManager();
 		em.getTransaction().begin();
