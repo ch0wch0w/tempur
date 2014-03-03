@@ -4,8 +4,10 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
+import javax.print.attribute.standard.Finishings;
 
 import com.cta.tempura.db.ConnectionManager;
+import com.cta.tempura.model.RoleType;
 import com.cta.tempura.model.User;
 
 public class UserDAO {
@@ -33,7 +35,9 @@ public class UserDAO {
 	public List<User> findAll (){
 		TypedQuery<User> query = em.createQuery("FROM User", User.class);
 		List<User> users = query.getResultList();
+		// return em.createQuery("FROM User",User.class).getResultList(); //One liner
 		return users;
+		
 	}
 	
 	public void update (User user){
@@ -50,6 +54,70 @@ public class UserDAO {
 
 	public void setEm(EntityManager em) {
 		this.em = em;
+	}
+	public static void main(String[] args){
+		//populate database - inserts
+		/*
+		EntityManager em = ConnectionManager.getEntityManager();
+		UserDAO dao = new UserDAO(em);
+		
+		em.getTransaction().begin();
+		for (int i=0;i<=10;i++){
+			User user = new User();
+			//user.setUserId(i);
+			user.setUserName("User "+i);
+			user.setUserRole(RoleType.USER);
+			dao.insert(user);
+		}
+		em.getTransaction().commit();
+		em.close();
+		*/
+		//get all users
+		/*
+		EntityManager em = ConnectionManager.getEntityManager();
+		UserDAO dao = new UserDAO(em);
+		em.getTransaction().begin();
+		List<User> staff= dao.findAll();
+		em.getTransaction().commit();
+		em.close();
+		System.out.println(staff);
+		*/
+		//get by id
+		/*
+		EntityManager em = ConnectionManager.getEntityManager();
+		UserDAO dao = new UserDAO(em);
+		em.getTransaction().begin();
+		User user = new User();
+		user = dao.findById(5);
+		em.getTransaction().commit();
+		em.close();
+		System.out.println(user);
+		*/
+		//updates
+		/*EntityManager em = ConnectionManager.getEntityManager();
+		UserDAO dao = new UserDAO(em);
+		em.getTransaction().begin();
+		User user = new User();
+		user = dao.findById(6);
+		user.setUserName("User6");
+		//dao.update(user); //Not needed
+		em.getTransaction().commit();
+		em.close();
+		System.out.println(user);
+		*/
+		//deletes
+		/*
+		EntityManager em = ConnectionManager.getEntityManager();
+		UserDAO dao = new UserDAO(em);
+		em.getTransaction().begin();
+		User user = new User();
+		user = dao.findById(11);
+		dao.delete(user);
+		em.getTransaction().commit();
+		em.close();
+		System.out.println(user);
+		*/
+		
 	}
 	
 }
