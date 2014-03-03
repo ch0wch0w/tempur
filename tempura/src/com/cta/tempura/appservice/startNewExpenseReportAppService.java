@@ -1,5 +1,6 @@
 package com.cta.tempura.appservice;
 
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -7,6 +8,7 @@ import javax.persistence.EntityManager;
 import com.cta.tempura.dao.ExpenseReportDAO;
 import com.cta.tempura.dao.UserDAO;
 import com.cta.tempura.db.ConnectionManager;
+import com.cta.tempura.model.ExpenseEvent;
 import com.cta.tempura.model.ExpenseReport;
 import com.cta.tempura.model.User;
 
@@ -23,6 +25,13 @@ public class startNewExpenseReportAppService {
 		em.close();
 		return expenseReportId;
 	}
+	
+	public Integer startNewExpenseReport (Integer managerId, ExpenseReport expenseReport){
+		User manager = new User();
+		manager.setUserId(managerId);
+		return startNewExpenseReport(manager, expenseReport);
+	}
+	
 	public List<User> getStaff() {
 		EntityManager em=ConnectionManager.getEntityManager();
 		UserDAO userDAO= new UserDAO(em);
@@ -43,8 +52,24 @@ public class startNewExpenseReportAppService {
 		em.close();
 		//MessagingService.notify(claimers, MSG);
 	}
-	public static void main (String [] args){
+	public static void main (String [] args) throws Exception {
+		// Start new expense report
 		startNewExpenseReportAppService test = new startNewExpenseReportAppService();
-		System.out.println(test.getStaff());
+		User manager = new User();
+		manager.setUserId(3);
+		ExpenseReport expenseReport = new ExpenseReport();
+		expenseReport.setName("J2EE UNIVERSITY");
+		ExpenseEvent event = new ExpenseEvent();
+		event.setEventId(1);
+		expenseReport.setEvent(event);
+		expenseReport.setStartDate(new SimpleDateFormat("yyyy/MM/dd").parse("2014/02/24"));
+		expenseReport.setEndDate(new SimpleDateFormat("yyyy/MM/dd").parse("2014/03/07"));
+		test.startNewExpenseReport(manager, expenseReport);
+		List<User> claimants = test.getStaff();
+		System.out.println(claimants);
+		System.out.println(expenseReport);
+		
+		// Add claimants
+		test.addClaimers(expenseReport.getId(), claimants);
 	}
 }
