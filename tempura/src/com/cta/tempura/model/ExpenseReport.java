@@ -149,8 +149,12 @@ public class ExpenseReport implements Serializable {
 
 	@Override
 	public String toString() {
-		return "ExpenseReport [id=" + id + ", name=" + name + "]";
+		return "ExpenseReport [id=" + id + ", name=" + name + ", manager="
+				+ manager.getUserId() + ", event=" + event.getEventId() + ", startDate=" + startDate
+				+ ", endDate=" + endDate + "]";
 	}
+
+	
 
 	
 

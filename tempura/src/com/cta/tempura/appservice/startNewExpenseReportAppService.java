@@ -8,6 +8,7 @@ import javax.persistence.EntityManager;
 import com.cta.tempura.dao.ExpenseReportDAO;
 import com.cta.tempura.dao.UserDAO;
 import com.cta.tempura.db.ConnectionManager;
+import com.cta.tempura.model.Expense;
 import com.cta.tempura.model.ExpenseEvent;
 import com.cta.tempura.model.ExpenseReport;
 import com.cta.tempura.model.User;
@@ -15,6 +16,10 @@ import com.cta.tempura.model.User;
 
 public class startNewExpenseReportAppService {
 
+	public ExpenseReport startNewExpenseReport(ExpenseReport report, List<Expense>expenses) {
+		return null;
+	}
+	
 	public Integer startNewExpenseReport (User manager, ExpenseReport expenseReport){
 		EntityManager em=ConnectionManager.getEntityManager();
 		ExpenseReportDAO expenseReportDAO = new ExpenseReportDAO(em);
