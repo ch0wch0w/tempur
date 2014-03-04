@@ -63,10 +63,16 @@ public class StartNewExpenseReportAppService {
 		EntityManager em=ConnectionManager.getEntityManager();
 		ExpenseReportDAO expenseReportDAO = new ExpenseReportDAO(em);
 		expenseReport.setManager(manager);
-		em.getTransaction().begin();
-		Integer expenseReportId = expenseReportDAO.insert(expenseReport);
-		em.getTransaction().commit();
-		em.close();
+		Integer expenseReportId = -1; //Code error -1
+		try {
+			em.getTransaction().begin();
+			expenseReportId = expenseReportDAO.insert(expenseReport);
+			em.getTransaction().commit();
+		} catch (Exception e) {
+			em.getTransaction().rollback();
+		} finally {
+			em.close();
+		}
 		return expenseReportId;
 	}
 	
@@ -79,10 +85,16 @@ public class StartNewExpenseReportAppService {
 	public List<User> getStaff() {
 		EntityManager em=ConnectionManager.getEntityManager();
 		UserDAO userDAO= new UserDAO(em);
-		em.getTransaction().begin();
-		List<User> staff = userDAO.findAll();
-		em.getTransaction().commit();
-		em.close();
+		List<User> staff = null;
+		try {
+			em.getTransaction().begin();
+			staff = userDAO.findAll();
+			em.getTransaction().commit();
+		} catch (Exception e){
+			em.getTransaction().rollback();
+		} finally{
+			em.close();
+		}
 		return staff;
 	}
 	public void addClaimers(Integer expenseReportId, List<User> claimers){
@@ -140,6 +152,6 @@ public class StartNewExpenseReportAppService {
 		meal.setReimbursable(true);
 		receipts.add(meal);
 
-		batchClient.startNewExpenseReport(1, 1, 1, report, receipts);
+		batchClient.startNewExpenseReport(4, 1, 1, report, receipts);
 	}
 }
