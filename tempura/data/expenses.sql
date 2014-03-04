@@ -174,7 +174,7 @@ CREATE TABLE `reimbursements` (
   `report` int(10) unsigned NOT NULL,
   `claimer` int(10) unsigned NOT NULL,
   `start_date` date DEFAULT NULL,
-  `end_sate` date DEFAULT NULL,
+  `end_date` date DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `expense_reports_reimbursements` (`report`),
   KEY `claimer_reimbursements` (`claimer`),
