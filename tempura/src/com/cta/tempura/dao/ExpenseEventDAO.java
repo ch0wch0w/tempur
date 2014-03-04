@@ -5,7 +5,6 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 
-import com.cta.tempura.db.ConnectionManager;
 import com.cta.tempura.model.ExpenseEvent;
 
 public class ExpenseEventDAO {

@@ -1,7 +1,6 @@
 package com.cta.tempura.appservice;
 
 import java.math.BigDecimal;
-import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -10,18 +9,31 @@ import javax.persistence.EntityManager;
 
 import com.cta.tempura.dao.ExpenseDAO;
 import com.cta.tempura.dao.ExpenseReportDAO;
-import com.cta.tempura.dao.NoteDAO;
 import com.cta.tempura.dao.UserDAO;
 import com.cta.tempura.db.ConnectionManager;
 import com.cta.tempura.model.Expense;
 import com.cta.tempura.model.ExpenseEvent;
 import com.cta.tempura.model.ExpenseReport;
-import com.cta.tempura.model.Note;
 import com.cta.tempura.model.User;
 
 
 public class StartNewExpenseReportAppService {
+	
+	// ** singleton implementation start **
+	private static StartNewExpenseReportAppService instance = null;
+	
+	private StartNewExpenseReportAppService(){
+		//instance= this;
+	}
 
+	public static StartNewExpenseReportAppService getController(){
+		if (instance==null)
+			instance= new StartNewExpenseReportAppService();
+		return instance;
+	}
+	
+	// ** singleton implementation end **
+	
 	public ExpenseReport startNewExpenseReport(Integer managerId, Integer claimerId, Integer eventId, ExpenseReport report, List<Expense>expenses) {
 		EntityManager em = ConnectionManager.getEntityManager();
 		ExpenseReportDAO expenseReportDAO = new ExpenseReportDAO(em);

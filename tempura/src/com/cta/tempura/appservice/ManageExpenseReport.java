@@ -1,15 +1,13 @@
 package com.cta.tempura.appservice;
 
-import java.text.SimpleDateFormat;
-import java.util.List;
+
 
 import javax.persistence.EntityManager;
 
 import com.cta.tempura.dao.ExpenseReportDAO;
 import com.cta.tempura.db.ConnectionManager;
-import com.cta.tempura.model.ExpenseEvent;
 import com.cta.tempura.model.ExpenseReport;
-import com.cta.tempura.model.User;
+
 
 /*
  * This class exposes operations to manipulate existing expense reports. A manager might modify details of a expense report, 

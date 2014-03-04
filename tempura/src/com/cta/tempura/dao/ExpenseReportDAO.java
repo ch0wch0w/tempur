@@ -2,13 +2,9 @@ package com.cta.tempura.dao;
 
 import java.util.List;
 
-
-
-
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 
-import com.cta.tempura.db.ConnectionManager;
 import com.cta.tempura.model.ExpenseReport;
 
 public class ExpenseReportDAO {

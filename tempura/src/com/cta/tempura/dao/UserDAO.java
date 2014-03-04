@@ -4,10 +4,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
-import javax.print.attribute.standard.Finishings;
 
-import com.cta.tempura.db.ConnectionManager;
-import com.cta.tempura.model.RoleType;
 import com.cta.tempura.model.User;
 
 public class UserDAO {

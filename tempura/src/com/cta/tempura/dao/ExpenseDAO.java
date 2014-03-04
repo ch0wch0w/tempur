@@ -5,7 +5,6 @@ import javax.persistence.TypedQuery;
 
 import java.util.List;
 
-import com.cta.tempura.db.ConnectionManager;
 import com.cta.tempura.model.Expense;
 
 public class ExpenseDAO {
