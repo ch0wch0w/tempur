@@ -19,5 +19,9 @@
 	<classpathentry kind="lib" path="C:/Users/AULA 4/Desktop/rest client libs/httpclient-4.1.2.jar"/>
 	<classpathentry kind="lib" path="C:/Users/AULA 4/Desktop/rest client libs/httpcore-4.1.2.jar"/>
 	<classpathentry kind="lib" path="C:/Users/AULA 4/Desktop/rest client libs/json-20090211.jar"/>
+	<classpathentry kind="lib" path="C:/Users/AULA 4/Desktop/glassfish4/glassfish/lib/appserv-rt.jar"/>
+	<classpathentry kind="lib" path="C:/Users/AULA 4/Desktop/glassfish4/glassfish/lib/gf-client.jar"/>
+	<classpathentry kind="lib" path="C:/Users/AULA 4/Desktop/glassfish4/glassfish/lib/javaee.jar"/>
+	<classpathentry kind="lib" path="C:/Users/AULA 4/Desktop/glassfish4/glassfish/lib/jndi-properties.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

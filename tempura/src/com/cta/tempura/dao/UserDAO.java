@@ -63,7 +63,7 @@ public class UserDAO {
 			User user = new User();
 			//user.setUserId(i);
 			user.setUserName("User "+i);
-			user.setUserRole(RoleType.USER);
+			user.setUserRole(RoleType.CLAIMER);
 			dao.insert(user);
 		}
 		em.getTransaction().commit();
