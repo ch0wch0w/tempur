@@ -74,7 +74,7 @@ public class UserDAO {
 		}
 		em.getTransaction().commit();
 		em.close();
-		*/
+		
 		//get all users
 		/*
 		EntityManager em = ConnectionManager.getEntityManager();
