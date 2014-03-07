@@ -35,7 +35,7 @@ public class Pruebas {
 	// Tests de UserDAO
 		public static void testUserDAO(EntityManager em){	
 			System.out.println("***INICIO PRUEBAS USERDAO***");
-			UserDAO userDAO = new UserDAO(em);
+			UserDAO userDAO = UserDAO.getDAO();
 			System.out.println("-=Insert=-");
 			em.getTransaction().begin();
 			Integer expenseReportId = userDAO.insert(getUser(true));

@@ -96,7 +96,7 @@ public class StartNewExpenseReportAppService {
 	
 	public List<User> getStaff() {
 		EntityManager em=ConnectionManager.getEntityManager();
-		UserDAO userDAO= new UserDAO(em);
+		UserDAO userDAO= UserDAO.getDAO();
 		List<User> staff = null;
 		try {
 			em.getTransaction().begin();

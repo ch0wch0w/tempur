@@ -5,31 +5,41 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 
+import com.cta.tempura.db.ConnectionManager;
+import com.cta.tempura.model.RoleType;
 import com.cta.tempura.model.User;
 
 public class UserDAO {
 	
-	private EntityManager em;
-	
-	public UserDAO(EntityManager em) {
-		super();
-		this.em=em;
+	private static UserDAO instance = null;
+
+	private UserDAO() {
 	}
+	
+	public static UserDAO getDAO() {
+		if (instance == null)
+			instance = new UserDAO();
+		return instance;
+	}
+	
+	
 
 	
 
 	public Integer insert (User user){
-		
+		EntityManager em = ConnectionManager.getEntityManager();
 		em.persist(user);
 		return user.getUserId();
 	}
 	
 	public User findById (int id){
+		EntityManager em = ConnectionManager.getEntityManager();
 		User user = em.find(User.class, id);
 		return user;
 	}
 	
 	public List<User> findAll (){
+		EntityManager em = ConnectionManager.getEntityManager();
 		TypedQuery<User> query = em.createQuery("FROM User", User.class);
 		List<User> users = query.getResultList();
 		// return em.createQuery("FROM User",User.class).getResultList(); //One liner
@@ -38,25 +48,21 @@ public class UserDAO {
 	}
 	
 	public void update (User user){
+		EntityManager em = ConnectionManager.getEntityManager();
 		em.merge(user);
 	}
 	
 	public void delete (User user){
+		EntityManager em = ConnectionManager.getEntityManager();
 		em.remove(user);
 	}
 
-	public EntityManager getEm() {
-		return em;
-	}
-
-	public void setEm(EntityManager em) {
-		this.em = em;
-	}
+	
 	public static void main(String[] args){
 		//populate database - inserts
-		/*
+		
 		EntityManager em = ConnectionManager.getEntityManager();
-		UserDAO dao = new UserDAO(em);
+		UserDAO dao = UserDAO.getDAO();
 		
 		em.getTransaction().begin();
 		for (int i=0;i<=10;i++){
