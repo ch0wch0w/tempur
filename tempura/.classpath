@@ -7,7 +7,20 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Hibernate"/>
-	<classpathentry kind="lib" path="C:/Users/AULA 4/Desktop/mysql-connector-java-5.1.29.jar"/>
+	<classpathentry kind="lib" path="C:/Users/AULA 4/Desktop/glassfish4/glassfish/lib/antlr-2.7.7.jar"/>
+	<classpathentry kind="lib" path="C:/Users/AULA 4/Desktop/glassfish4/glassfish/lib/appserv-rt.jar"/>
+	<classpathentry kind="lib" path="C:/Users/AULA 4/Desktop/glassfish4/glassfish/lib/dom4j-1.6.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/AULA 4/Desktop/glassfish4/glassfish/lib/gf-client.jar"/>
+	<classpathentry kind="lib" path="C:/Users/AULA 4/Desktop/glassfish4/glassfish/lib/hibernate-commons-annotations-4.0.1.Final.jar"/>
+	<classpathentry kind="lib" path="C:/Users/AULA 4/Desktop/glassfish4/glassfish/lib/hibernate-core-4.1.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/AULA 4/Desktop/glassfish4/glassfish/lib/hibernate-entitymanager-4.1.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/AULA 4/Desktop/glassfish4/glassfish/lib/hibernate-jpa-2.0-api-1.0.1.Final.jar"/>
+	<classpathentry kind="lib" path="C:/Users/AULA 4/Desktop/glassfish4/glassfish/lib/javaee.jar"/>
+	<classpathentry kind="lib" path="C:/Users/AULA 4/Desktop/glassfish4/glassfish/lib/javassist-3.15.0-GA.jar"/>
+	<classpathentry kind="lib" path="C:/Users/AULA 4/Desktop/glassfish4/glassfish/lib/jboss-logging-3.1.0.GA.jar"/>
+	<classpathentry kind="lib" path="C:/Users/AULA 4/Desktop/glassfish4/glassfish/lib/jboss-transaction-api_1.1_spec-1.0.0.Final.jar"/>
+	<classpathentry kind="lib" path="C:/Users/AULA 4/Desktop/glassfish4/glassfish/lib/jndi-properties.jar"/>
+	<classpathentry kind="lib" path="C:/Users/AULA 4/Desktop/glassfish4/glassfish/lib/mysql-connector-java-5.1.29.jar"/>
 	<classpathentry kind="lib" path="C:/Users/AULA 4/Desktop/rest client libs/axis-1.4.jar"/>
 	<classpathentry kind="lib" path="C:/Users/AULA 4/Desktop/rest client libs/axis-jaxrpc-1.4.jar"/>
 	<classpathentry kind="lib" path="C:/Users/AULA 4/Desktop/rest client libs/axis-saaj-1.4.jar"/>
@@ -19,9 +32,5 @@
 	<classpathentry kind="lib" path="C:/Users/AULA 4/Desktop/rest client libs/httpclient-4.1.2.jar"/>
 	<classpathentry kind="lib" path="C:/Users/AULA 4/Desktop/rest client libs/httpcore-4.1.2.jar"/>
 	<classpathentry kind="lib" path="C:/Users/AULA 4/Desktop/rest client libs/json-20090211.jar"/>
-	<classpathentry kind="lib" path="C:/Users/AULA 4/Desktop/glassfish4/glassfish/lib/appserv-rt.jar"/>
-	<classpathentry kind="lib" path="C:/Users/AULA 4/Desktop/glassfish4/glassfish/lib/gf-client.jar"/>
-	<classpathentry kind="lib" path="C:/Users/AULA 4/Desktop/glassfish4/glassfish/lib/javaee.jar"/>
-	<classpathentry kind="lib" path="C:/Users/AULA 4/Desktop/glassfish4/glassfish/lib/jndi-properties.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

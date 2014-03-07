@@ -19,7 +19,7 @@ public class StartNewExpenseReportAppServiceBean implements StartNewExpenseRepor
      * Default constructor. 
      */
     public StartNewExpenseReportAppServiceBean() {
-        // TODO Auto-generated constructor stub
+        
     }
     
 	public ExpenseReport startNewExpenseReport(Integer managerId,
